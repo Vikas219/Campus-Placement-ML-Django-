@@ -1,0 +1,88 @@
+
+1) django-admin startproject  project_name
+
+2) python manage.py makemigrations
+
+3) python manage.py migrate
+
+4) python manage.py startapp home 
+
+5) go to home-->apps-->
+   
+    copy the class name, then
+
+    go to userproject-->settings
+
+    find INSTALLED_APP, then add
+
+    'home.apps.HomeConfig',
+
+
+6) create 'static' and 'templates' folders
+
+
+7) Set static directory inside settings
+
+    import os 
+
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static')
+    ]
+
+8) set templates directory inside settings
+
+    TEMPLATES = [
+        'DIRS' : os.path.join(BASE_DIR, 'templates')
+    ]
+
+
+9) set urls
+
+    go to settings-->urls.py
+
+        from django.contrib import admin
+        from django.urls import include
+        urlpatterns = [
+            path('admin/', admin.site.urls),
+            path('', include('home.urls'))
+        ]
+    
+    go to home directory and create urls.py
+
+
+    go to home-->urls.py and make routes
+
+        from django.contrib import admin
+        from django.urls import path, include
+        from home import views
+
+        urlpatterns = [
+            path('', views.index,  name = 'home'),
+            path('login', views.login,  name = 'login'),
+            path('logout', views.logout,  name = 'logout')
+            .......
+            .......
+            ......
+        ]
+
+
+10) crete functions for views inside home-->views.py for all urlpatterns
+
+    def index(request):
+        render(request, 'index.html)
+
+    .........
+    .........
+    .........
+
+
+For all form that are making post requests, always use 
+    {% scrf_token %}
+
+    e.g.
+    
+        <form method = 'post' action = '/login'>
+            {% scrf_token %}
+            .....
+            ....
+        </form>

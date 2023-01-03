@@ -1,0 +1,171 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <h1>Predict status and salary</h1>
+
+    <div class = "container ">
+        {% comment %} <div class = " row h-100 justify-content-center align-items-center"> {% endcomment %}
+            {% comment %} <div class="col-10 col-md-8 col-lg-6"> {% endcomment %}
+
+                <form method = 'POST' action = '/'>
+                    {% csrf_token %}
+        
+        
+                    {% comment %} Serial Number {% endcomment %}
+                    
+                    <div class="form-group col-md-6">
+                      <label for="">Name</label>
+                      <input type="text" name = 'name' class="form-control" id="" aria-describedby="" >
+                    </div> 
+            
+            
+            
+                    {% comment %} Gender {% endcomment %}
+                    <div class="form-group col-md-6">
+                        <label for="">Gender</label>
+                        <input type="text" name = 'gender' class="form-control" id="" placeholder="Male/Female">
+                                     
+                        {% comment %} <div class="form-check col-md-6">
+                            <input type="radio" name = 'gender' class="form-check-input" id="gender.male">
+                            <label class = 'form-check-label' for="exampleRadios1">male</label>
+                        </div>
+                
+                        <div class="form-check col-md-6">
+                            <input type="radio" name = 'gender' class="form-check-input" id="gender.female">
+                            <label class = 'form-check-label' for="exampleRadios1">female</label>
+                        </div> {% endcomment %}
+                    </div>
+            
+                    {% comment %} 10th {% endcomment %}
+                    <div class="form-group col-md-6">
+                        <label for="">Secondary Education Percentage(10th)</label>
+                        <input type="floatformat" name = 'ssc_p' class="form-control" id="" aria-describedby="" >
+                    </div>
+             
+                    {% comment %} 10th board {% endcomment %}
+                    <div class="form-group col-md-6">
+                        <label for="">Board of Education Central/Others(10th)</label>
+                        <input type="text" name = 'ssc_b' class="form-control" id="" placeholder="Central/Others">
+                    </div> 
+            
+                    {% comment %} 12th percentage{% endcomment %}
+                    <div class="form-group col-md-6">
+                        <label for="">Higher Secondary Education Percentage(12th)</label>
+                        <input type="floatformat" name = 'hsc_p' class="form-control" id="" aria-describedby="" >
+                    </div>
+             
+                    {% comment %} 12th board {% endcomment %}
+                    <div class="form-group col-md-6">
+                        <label for="">Board of Education Central/Others(12th)</label>
+                        <input type="text" name = 'hsc_b' class="form-control" id="" placeholder="Central/Others" >
+                    </div>
+            
+                    {% comment %} 12th Specialisation {% endcomment %} 
+                                     
+                    <div class="form-group col-md-6">
+                        <label for="">Specialization in Higher Secondary Education(12th)</label>
+                        <input type="text" name = 'hsc_s' class="form-control" id="" placeholder="Science/Commerce/Arts">
+
+            
+                        {% comment %} <div class="form-check col-md-6">
+                            <input type="radio" name = 'hsc_s' class="form-check-input" id="exampleRadios1">
+                            <label class = 'form-check-label' for="exampleRadios1">Commerce</label>
+                        </div>
+            
+                        <div class="form-check col-md-6">
+                            <input type="radio" name = 'hsc_s' class="form-check-input" id="exampleRadios1">
+                            <label class = 'form-check-label' for="exampleRadios1">Arts</label>
+                        </div>              {% endcomment %}
+                    </div>
+            
+                    {% comment %} Degree Percentage {% endcomment %}
+                    <div class="form-group col-md-6">
+                        <label for="">UG Degree Percentage</label>
+                        <input type="floatformat" name = 'degree_p' class="form-control" id="" aria-describedby="" >
+                    </div>
+            
+                    {% comment %} Degree Specialisation {% endcomment %}
+                    <div class="form-group col-md-6">
+                        <label for="">UG - Field of degree education</label>
+            
+                        <input type="text"  name = 'degree_t' class="form-control" id="" placeholder = "Comm&&Mgmt/Sci&Tech/Others">
+                            
+                        {% comment %} <div class="form-check col-md-6">
+                            <input type="radio"  name = 'degree_t' class="form-check-input" id="exampleRadios1">
+                            <label class = 'form-check-label' for="exampleRadios1">Sci&Tech</label>
+                        </div>
+            
+                        <div class="form-check col-md-6">
+                            <input type="radio"  name = 'degree_t' class="form-check-input" id="exampleRadios1">
+                            <label class = 'form-check-label' for="exampleRadios1">others</label>
+                        </div> {% endcomment %}
+                    </div>
+            
+                    {% comment %} Work Exprerience {% endcomment %}
+                    <div class = "form-group col-md-6">
+                        <label for="">Work Exprerience</label>
+                        <input type="text" name = 'workex' class="form-control" id="" placeholder="Yes/No">
+ 
+                
+                        {% comment %} <div class="form-check col-md-6">
+                            <input type="radio" name = 'workex' class="form-check-input" id="exampleRadios1">
+                            <label class = 'form-check-label' for="exampleRadios1">no</label>
+                        </div> {% endcomment %}
+                    </div>
+            
+                    {% comment %} Employability Test Percentage {% endcomment %}
+                    <div class="form-group col-md-6">
+                        <label for="">Employability test percentage</label>
+                        <input type="floatformat" name = 'etest_p' class="form-control" id="" aria-describedby="" >
+                    </div> 
+            
+                    {% comment %} Specialisation MBA {% endcomment %} 
+                    <div class="form-group col-md-6">
+                        <label for="">Specialization(MBA)</label>
+                        <input type="text" name = 'specialisation' class="form-control" id="" placeholder="Mkt&Hr/Mkt&Fin">
+                         
+            
+                        {% comment %} <div class="form-check col-md-6">
+                            <input type="radio" name = 'specialisation' class="form-check-input" id="exampleRadios1">
+                            <label class = 'form-check-label' for="exampleRadios1">Mkt&Fin</label>
+                        </div>            {% endcomment %}
+                    </div>
+
+                    {% comment %} MBA Percentage {% endcomment %}
+                    <div class="form-group col-md-6">
+                        <label for="">MBA percentage</label>
+                        <input type="floatformat" name = 'mba_p' class="form-control" id="" >
+                    </div>
+             
+            
+            
+                    {% comment %} Status {% endcomment %}
+        
+                    {% comment %} <div class = "form-group col-md-6">
+                        <label for="">Status</label>
+                        <div class="form-check col-md-6">
+                            <input type="text" name = 'status' class="form-check-input" placeholder="placed" id="exampleRadios1">
+                            <label class = 'form-check-label' for="exampleRadios1">placed</label>
+                        </div> {% endcomment %}
+                
+                        {% comment %} <div class="form-check col-md-6">
+                            <input type="radio" name = 'status' class="form-check-input" id="exampleRadios1">
+                            <label class = 'form-check-label' for="exampleRadios1">not placed</label>
+                        </div> {% endcomment %}
+                    {% comment %} </div>  {% endcomment %}
+            
+            
+            
+                    {% comment %} Salary {% endcomment %}
+            
+            
+            
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            {% comment %} </div>             {% endcomment %}
+        {% comment %} </div> {% endcomment %}
+    </div>
+
+{% endblock body %}

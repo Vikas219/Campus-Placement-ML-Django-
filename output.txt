@@ -1,0 +1,19 @@
+
+1. Decision Tree:
+Accuracy: 0.7857142857142857
+
+
+2. Logistic Regression:
+Accuracy: 0.8095238095238095
+
+
+3. Random ForestL
+Accuracy: 0.8333333333333334
+
+
+4. K Nearest Neighbours:
+Accuaracy:  0.7380952380952381
+
+
+5. Support Vector Machine:
+Accuaracy:  0.7619047619047619
